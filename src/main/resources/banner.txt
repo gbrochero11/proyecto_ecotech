@@ -1,0 +1,10 @@
+ _  __ ___   ___   ____   _  __  ___
+| |/ /|_ _| / _ \ / ___| | |/ / / _ \
+| ' /  | | | | | |\___ \ | ' / | | | |
+| . \  | | | |_| | ___) || . \ | |_| |
+|_|\_\|___| \___/ |____/ |_|\_\ \___/
+${spring.application.title} ${spring.application.version}
+Powered by Extreme with Spring Boot ${spring-boot.version}
+
+
+
