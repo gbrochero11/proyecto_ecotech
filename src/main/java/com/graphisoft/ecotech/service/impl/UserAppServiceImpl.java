@@ -1,6 +1,5 @@
 package com.graphisoft.ecotech.service.impl;
 
-import com.graphisoft.ecotech.dto.OrderServiceDTO;
 import com.graphisoft.ecotech.dto.UserAppDTO;
 import com.graphisoft.ecotech.model.OrderService;
 import com.graphisoft.ecotech.model.User;
@@ -43,10 +42,15 @@ public class UserAppServiceImpl implements UserAppService {
     public ResponseModel orderServicesAssigned(Long idResource) {
 
         List<UserAppDTO> mapService = new ArrayList<UserAppDTO>();
+        UserApp userApp = userAppRepository.findResourceId(idResource);
         List<OrderService> orderService = orderServicesRepository.findByIdRecurso(idResource);
         User user = userRepository.findByDocumento(orderService.get(0).getDocumento_usuario());
         for (int i=0; i<orderService.size(); i++){
             UserAppDTO orderServiceDTO = new UserAppDTO();
+            orderServiceDTO.setId(userApp.getId());
+            orderServiceDTO.setDocumento(userApp.getDocumento());
+            orderServiceDTO.setNombres(userApp.getNombres());
+            orderServiceDTO.setApellidos(userApp.getApellidos());
             orderServiceDTO.setIdService(orderService.get(i).getId());
             orderServiceDTO.setCiudad_origen(orderService.get(i).getCiudad_origen());
             orderServiceDTO.setDireccion(orderService.get(i).getDireccion());
