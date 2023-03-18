@@ -5,23 +5,27 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderServiceDTO {
+public class UserAppDTO {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private Long id;
-    private String documento_usuario;
-    private Long codigo_estado;
+    private Long id_empresa;
+    private Long id_tipo_usuario;
+    private String documento;
+    private String nombres;
+    private String apellidos;
+    private String usuarioapp;
+    private String contrasenaapp;
+
+    private Long idService;
+    private String ciudad_origen;
     private String direccion;
     private Long toneladas;
     private String fecha_solicitud;
-    private String ciudad_origen;
-    private String nombre_horeca;
     private Long telefono;
-    private String documento_empresa;
-    private Long id_recurso;
+    private String nombre;
+    private Long codigo_rut;
 }

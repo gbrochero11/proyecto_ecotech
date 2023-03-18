@@ -1,0 +1,15 @@
+package com.graphisoft.ecotech.repository;
+
+
+import com.graphisoft.ecotech.model.UserApp;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+public interface UserAppRepository extends JpaRepository<UserApp, Long> {
+
+    @Query(value = "select * from recursos_empresas where (usuarioapp = :user) and (contrasenaapp = :password)", nativeQuery = true)
+    UserApp findLoginResource(@Param("user") String user, @Param("password") String password);
+
+
+}

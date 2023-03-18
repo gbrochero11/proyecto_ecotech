@@ -27,4 +27,5 @@ public class OrderService {
     private String ciudad_origen;
     private Long telefono;
     private String documento_empresa;
+    private Long id_recurso;
 }

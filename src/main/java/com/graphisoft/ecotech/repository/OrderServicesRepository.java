@@ -19,4 +19,7 @@ public interface OrderServicesRepository  extends JpaRepository<OrderService, Lo
 
     @Query(value = "select * from solicitud_servicios where (documento_empresa = :identification)", nativeQuery = true)
     List<OrderService> findByOrderServicesAccepted(String identification);
+
+    @Query(value = "select * from solicitud_servicios where (id_recurso = :id) and (codigo_estado != 5)", nativeQuery = true)
+    List<OrderService> findByIdRecurso(Long id);
 }
