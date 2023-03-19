@@ -48,6 +48,8 @@ public class LogBookServiceImpl implements LogBookService {
             logBookDTO.setEstado_servicio(logBookList.get(i).getEstado_servicio());
             logBookDTO.setFecha_registro(logBookList.get(i).getFecha_registro());
             logBookDTO.setNombre_servicio(typeState.get().getNombre_estado());
+            logBookDTO.setToneladas(logBookList.get(i).getToneladas());
+            logBookDTO.setTipo_desecho(logBookList.get(i).getTipo_desecho());
             mapLogBook.add(logBookDTO);
         }
 

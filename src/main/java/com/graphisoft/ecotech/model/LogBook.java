@@ -22,4 +22,6 @@ public class LogBook {
     private String descripcion;
     private String fecha_registro;
     private Long estado_servicio;
+    private Long toneladas;
+    private String tipo_desecho;
 }
