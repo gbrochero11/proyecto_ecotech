@@ -28,4 +28,5 @@ public class UserAppDTO {
     private Long telefono;
     private String nombre;
     private Long codigo_rut;
+    private Long codigo_estado;
 }
