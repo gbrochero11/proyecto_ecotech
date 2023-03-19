@@ -19,4 +19,5 @@ public class LogBookDTO {
     private Long toneladas;
     private String tipo_desecho;
     private String nombre_servicio;
+    private Long id_recurso;
 }

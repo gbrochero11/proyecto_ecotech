@@ -24,4 +24,5 @@ public class LogBook {
     private Long estado_servicio;
     private Long toneladas;
     private String tipo_desecho;
+    private Long id_recurso;
 }

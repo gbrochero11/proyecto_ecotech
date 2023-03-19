@@ -37,7 +37,11 @@ public class LogBookServiceImpl implements LogBookService {
         LogBook orderServiceDB = CustomMapper.mapObject(logBookDTO, LogBook.class);
         if(logBookRepository.save(orderServiceDB) != null){
             Long stateService= orderServiceDB.getEstado_servicio() + 1L;
-            orderServicesRepository.actualizarRecurso(orderServiceDB.getId_solicitud(), stateService);
+            if (stateService != 5) {
+                orderServicesRepository.actualizarRecurso(orderServiceDB.getId_solicitud(), null, stateService);
+            }else{
+                orderServicesRepository.actualizarRecurso(orderServiceDB.getId_solicitud(), orderServiceDB.getId_recurso(), stateService);
+            }
         }
         return new ResponseModel(Time.getTime(), orderServiceDB, 200, "Registro de bitacora exitoso.");
     }

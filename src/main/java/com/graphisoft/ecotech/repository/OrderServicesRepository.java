@@ -28,7 +28,7 @@ public interface OrderServicesRepository  extends JpaRepository<OrderService, Lo
 
     @Transactional
     @Modifying
-    @Query("UPDATE OrderService  SET id_recurso = null, codigo_estado =  :codigoEstado WHERE id = :idSolicitud")
-    int actualizarRecurso(@Param("idSolicitud") Long id, @Param("codigoEstado") Long codigoEstado);
+    @Query("UPDATE OrderService  SET id_recurso = :idRecurso, codigo_estado =  :codigoEstado WHERE id = :idSolicitud")
+    int actualizarRecurso(@Param("idSolicitud") Long id, @Param("idRecurso") Long idRecurso, @Param("codigoEstado") Long codigoEstado);
 
 }
