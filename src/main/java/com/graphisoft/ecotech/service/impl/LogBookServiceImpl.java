@@ -4,6 +4,7 @@ import com.graphisoft.ecotech.dto.LogBookDTO;
 import com.graphisoft.ecotech.model.LogBook;
 import com.graphisoft.ecotech.model.TypeState;
 import com.graphisoft.ecotech.repository.LogBookRepository;
+import com.graphisoft.ecotech.repository.OrderServicesRepository;
 import com.graphisoft.ecotech.repository.TypeStateRepository;
 import com.graphisoft.ecotech.service.LogBookService;
 import com.graphisoft.ecotech.utils.CustomMapper;
@@ -27,11 +28,17 @@ public class LogBookServiceImpl implements LogBookService {
     @Autowired
     private TypeStateRepository typeStateRepository;
 
+    @Autowired
+    private OrderServicesRepository orderServicesRepository;
+
 
     public ResponseModel createLogBook(LogBookDTO logBookDTO) {
 
         LogBook orderServiceDB = CustomMapper.mapObject(logBookDTO, LogBook.class);
-        logBookRepository.save(orderServiceDB);
+        if(logBookRepository.save(orderServiceDB) != null){
+            Long stateService= orderServiceDB.getEstado_servicio() + 1L;
+            orderServicesRepository.actualizarRecurso(orderServiceDB.getId_solicitud(), stateService);
+        }
         return new ResponseModel(Time.getTime(), orderServiceDB, 200, "Registro de bitacora exitoso.");
     }
 

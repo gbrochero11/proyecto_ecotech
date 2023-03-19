@@ -2,8 +2,11 @@ package com.graphisoft.ecotech.repository;
 
 import com.graphisoft.ecotech.model.OrderService;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 public interface OrderServicesRepository  extends JpaRepository<OrderService, Long> {
@@ -22,4 +25,10 @@ public interface OrderServicesRepository  extends JpaRepository<OrderService, Lo
 
     @Query(value = "select * from solicitud_servicios where (id_recurso = :id) and (codigo_estado != 5)", nativeQuery = true)
     List<OrderService> findByIdRecurso(Long id);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE OrderService  SET id_recurso = null, codigo_estado =  :codigoEstado WHERE id = :idSolicitud")
+    int actualizarRecurso(@Param("idSolicitud") Long id, @Param("codigoEstado") Long codigoEstado);
+
 }
