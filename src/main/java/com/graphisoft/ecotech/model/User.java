@@ -20,7 +20,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long documento;
-    private String tipousuario;
+    private Long tipousuario;
     private String nombre;
     private String razon_social;
     private Long codigo_rut;
@@ -30,4 +30,5 @@ public class User {
     private String correo_electronico;
     private String usuario_app;
     private String password_app;
+    private String ciudad;
 }

@@ -13,14 +13,15 @@ public class UserDTO {
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private Long id;
     private Long documento;
-    private String tipoUsuario;
+    private Long telefono;
+    private Long codigoRut;
+    private Long tipoUsuario;
     private String nombre;
     private String razon_social;
-    private Long codigoRut;
     private String direccion;
     private String representante;
-    private Long telefono;
     private String correo_electronico;
-    private String user;
-    private String password;
+    private String usuario_app;
+    private String password_app;
+    private String ciudad;
 }
