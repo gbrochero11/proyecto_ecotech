@@ -1,5 +1,6 @@
 package com.graphisoft.ecotech.controller;
 
+import com.graphisoft.ecotech.dto.AssignedResource;
 import com.graphisoft.ecotech.dto.OrderServiceDTO;
 import com.graphisoft.ecotech.service.OrderServices;
 import com.graphisoft.ecotech.utils.ResponseModel;
@@ -67,7 +68,7 @@ public class OrderServiceController {
     }
 
     @PostMapping("/update-resource")
-    public ResponseEntity<?> updateResource(@RequestBody OrderServiceDTO orderServiceDTO) {
+    public ResponseEntity<?> updateResource(@RequestBody AssignedResource orderServiceDTO) {
         ResponseModel response = orderServices.asignarServicioRecurso(orderServiceDTO.getId(), orderServiceDTO.getId_recurso());
         return ResponseEntity.ok(response);
     }
