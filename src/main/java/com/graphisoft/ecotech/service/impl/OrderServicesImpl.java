@@ -69,8 +69,8 @@ public class OrderServicesImpl implements OrderServices {
     public ResponseModel findOrderServiceAvaible() {
         List<OrderServiceDTO> mapService = new ArrayList<OrderServiceDTO>();
         List<OrderService> orderServiceList = orderServicesRepository.findOrderServiceAvaible(1L);
-        User user = userRepository.findByDocumento(orderServiceList.get(0).getDocumento_usuario());
         for (int i=0; i<orderServiceList.size(); i++){
+            User user = userRepository.findByDocumento(orderServiceList.get(i).getDocumento_usuario());
             OrderServiceDTO orderServiceDTO = new OrderServiceDTO();
             orderServiceDTO.setId(orderServiceList.get(i).getId());
             orderServiceDTO.setDocumento_usuario(orderServiceList.get(i).getDocumento_usuario());
