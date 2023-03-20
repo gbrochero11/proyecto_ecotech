@@ -14,7 +14,7 @@ public class UserDTO {
     private Long id;
     private Long documento;
     private Long telefono;
-    private Long codigoRut;
+    private Long codigo_rut;
     private Long tipoUsuario;
     private String nombre;
     private String razon_social;
