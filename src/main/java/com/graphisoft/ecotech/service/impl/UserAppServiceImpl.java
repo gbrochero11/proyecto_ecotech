@@ -1,6 +1,7 @@
 package com.graphisoft.ecotech.service.impl;
 
 import com.graphisoft.ecotech.dto.UserAppDTO;
+import com.graphisoft.ecotech.dto.UserDTO;
 import com.graphisoft.ecotech.model.OrderService;
 import com.graphisoft.ecotech.model.User;
 import com.graphisoft.ecotech.model.UserApp;
@@ -8,6 +9,7 @@ import com.graphisoft.ecotech.repository.OrderServicesRepository;
 import com.graphisoft.ecotech.repository.UserAppRepository;
 import com.graphisoft.ecotech.repository.UserRepository;
 import com.graphisoft.ecotech.service.UserAppService;
+import com.graphisoft.ecotech.utils.CustomMapper;
 import com.graphisoft.ecotech.utils.ResponseModel;
 import com.graphisoft.ecotech.utils.Time;
 import lombok.extern.slf4j.Slf4j;
@@ -75,5 +77,16 @@ public class UserAppServiceImpl implements UserAppService {
             return new ResponseModel(Time.getTime(), mapService, 200, "Datos encontrados.");
         }
         return new ResponseModel(Time.getTime(), "", 404, "Datos no encontrados.");
+    }
+
+    public ResponseModel createUser(UserAppDTO userDTO) {
+        UserApp user = userAppRepository.findByDocumento(userDTO.getDocumento().toString());
+        if(user != null){
+            return new ResponseModel(Time.getTime(), "", 422, "Ya se encuentra usuario registrado.");
+        }
+        userDTO.setId_tipo_usuario(3L);
+        user= CustomMapper.mapObject(userDTO,UserApp.class);
+        userAppRepository.save(user);
+        return new ResponseModel(Time.getTime(), user, 204, "Registro de usuario exitoso.");
     }
 }

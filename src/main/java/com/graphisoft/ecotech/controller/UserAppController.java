@@ -1,5 +1,7 @@
 package com.graphisoft.ecotech.controller;
 
+import com.graphisoft.ecotech.dto.UserAppDTO;
+import com.graphisoft.ecotech.dto.UserDTO;
 import com.graphisoft.ecotech.model.UserApp;
 import com.graphisoft.ecotech.service.UserAppService;
 import com.graphisoft.ecotech.utils.ResponseModel;
@@ -16,6 +18,12 @@ public class UserAppController {
 
     @Autowired
     private UserAppService userAppService;
+
+    @PostMapping("/register")
+    public ResponseEntity<?> create( @RequestBody UserAppDTO userDTO) {
+        ResponseModel response = userAppService.createUser(userDTO);
+        return ResponseEntity.ok(response);
+    }
 
     @GetMapping("/login-app")
     public ResponseEntity<?> loginUser(

@@ -1,6 +1,7 @@
 package com.graphisoft.ecotech.repository;
 
 
+import com.graphisoft.ecotech.model.User;
 import com.graphisoft.ecotech.model.UserApp;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -17,5 +18,8 @@ public interface UserAppRepository extends JpaRepository<UserApp, Long> {
 
     @Query(value = "select * from recursos_empresas where (id_empresa = :id)", nativeQuery = true)
     List<UserApp> findResourcesEmpresa(@Param("id") Long id);
+
+    @Query(value = "select * from recursos_empresas where (documento = :identification)", nativeQuery = true)
+    UserApp findByDocumento(String identification);
 
 }
