@@ -18,4 +18,8 @@ public interface OrderServices {
     ResponseModel findOrderServiceAvaible();
 
     ResponseModel findByOrderServicesAccepted(String document);
+
+    ResponseModel asignarServicioRecurso(Long id, Long idRecurso);
+
+    ResponseModel findByOrderServicesNotAssigned(String document);
 }

@@ -20,7 +20,7 @@ public interface OrderServicesRepository  extends JpaRepository<OrderService, Lo
     @Query(value = "select * from solicitud_servicios where (codigo_estado = :codeState)", nativeQuery = true)
     List<OrderService> findOrderServiceAvaible(Long codeState);
 
-    @Query(value = "select * from solicitud_servicios where (documento_empresa = :identification)", nativeQuery = true)
+    @Query(value = "select * from solicitud_servicios where (documento_empresa = :identification) and (id_recurso is not null)", nativeQuery = true)
     List<OrderService> findByOrderServicesAccepted(String identification);
 
     @Query(value = "select * from solicitud_servicios where (id_recurso = :id) and (codigo_estado != 5)", nativeQuery = true)
@@ -30,5 +30,13 @@ public interface OrderServicesRepository  extends JpaRepository<OrderService, Lo
     @Modifying
     @Query("UPDATE OrderService  SET id_recurso = :idRecurso, codigo_estado =  :codigoEstado WHERE id = :idSolicitud")
     int actualizarRecurso(@Param("idSolicitud") Long id, @Param("idRecurso") Long idRecurso, @Param("codigoEstado") Long codigoEstado);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE OrderService  SET id_recurso = :idRecurso WHERE id = :idSolicitud")
+    int asignarServicioRecurso(@Param("idSolicitud") Long id, @Param("idRecurso") Long idRecurso);
+
+    @Query(value = "select * from solicitud_servicios where (documento_empresa = :identification) and (id_recurso is null)", nativeQuery = true)
+    List<OrderService> findByOrderServicesNotAssigned(String identification);
 
 }

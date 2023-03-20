@@ -66,4 +66,18 @@ public class OrderServiceController {
         return ResponseEntity.ok(response);
     }
 
+    @PostMapping("/update-resource")
+    public ResponseEntity<?> updateResource(@RequestBody OrderServiceDTO orderServiceDTO) {
+        ResponseModel response = orderServices.asignarServicioRecurso(orderServiceDTO.getId(), orderServiceDTO.getId_recurso());
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/oferrs-not-assigned")
+    public ResponseEntity<?> orderServicesNotAssigned(
+            @ApiParam(name = "document", value = "Numeric values for document")
+            @RequestParam String document) {
+        ResponseModel response = orderServices.findByOrderServicesNotAssigned(document);
+        return ResponseEntity.ok(response);
+    }
+
 }

@@ -6,4 +6,6 @@ public interface UserAppService {
 
     ResponseModel loginUserApp(String userName, String password);
     ResponseModel orderServicesAssigned(Long idResource);
+
+    ResponseModel userAssignedCompany(Long idCompany);
 }

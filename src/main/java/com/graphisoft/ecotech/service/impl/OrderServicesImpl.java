@@ -11,6 +11,7 @@ import com.graphisoft.ecotech.utils.ResponseModel;
 import com.graphisoft.ecotech.utils.Time;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -92,6 +93,24 @@ public class OrderServicesImpl implements OrderServices {
     public ResponseModel findByOrderServicesAccepted(String document) {
 
         List<OrderService> orderServiceList = orderServicesRepository.findByOrderServicesAccepted(document);
+        if(!orderServiceList.isEmpty() && orderServiceList.size() > 0){
+            return new ResponseModel(Time.getTime(), orderServiceList, 200, "Datos encontrados.");
+        }
+        return new ResponseModel(Time.getTime(), "", 404, "Datos no encontrados.");
+    }
+
+    public ResponseModel asignarServicioRecurso(Long id, Long idRecurso) {
+
+        int assignedResource = orderServicesRepository.asignarServicioRecurso(id, idRecurso);
+        if(assignedResource > 0){
+            return new ResponseModel(Time.getTime(), assignedResource, 200, "Datos encontrados.");
+        }
+        return new ResponseModel(Time.getTime(), "", 404, "Datos no encontrados.");
+    }
+
+    public ResponseModel findByOrderServicesNotAssigned(String document) {
+
+        List<OrderService> orderServiceList = orderServicesRepository.findByOrderServicesNotAssigned(document);
         if(!orderServiceList.isEmpty() && orderServiceList.size() > 0){
             return new ResponseModel(Time.getTime(), orderServiceList, 200, "Datos encontrados.");
         }

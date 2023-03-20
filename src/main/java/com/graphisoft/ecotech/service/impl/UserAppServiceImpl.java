@@ -69,5 +69,11 @@ public class UserAppServiceImpl implements UserAppService {
         return new ResponseModel(Time.getTime(), "", 404, "Datos no encontrados.");
     }
 
-
+    public ResponseModel userAssignedCompany(Long idCompany){
+        List<UserApp> mapService = userAppRepository.findResourcesEmpresa(idCompany);
+        if(!mapService.isEmpty() && mapService.size() > 0){
+            return new ResponseModel(Time.getTime(), mapService, 200, "Datos encontrados.");
+        }
+        return new ResponseModel(Time.getTime(), "", 404, "Datos no encontrados.");
+    }
 }

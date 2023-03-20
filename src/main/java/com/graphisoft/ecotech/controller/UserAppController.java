@@ -35,4 +35,12 @@ public class UserAppController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/userapp-company")
+    public ResponseEntity<?> usersAppCompany(
+            @ApiParam(name = "idCompany", value = "Numeric values for company id")
+            @RequestParam Long idCompany) {
+        ResponseModel response = userAppService.userAssignedCompany(idCompany);
+        return ResponseEntity.ok(response);
+    }
+
 }
