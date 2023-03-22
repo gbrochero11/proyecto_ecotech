@@ -46,8 +46,8 @@ public class UserAppServiceImpl implements UserAppService {
         List<UserAppDTO> mapService = new ArrayList<UserAppDTO>();
         UserApp userApp = userAppRepository.findResourceId(idResource);
         List<OrderService> orderService = orderServicesRepository.findByIdRecurso(idResource);
-        User user = userRepository.findByDocumento(orderService.get(0).getDocumento_usuario());
         for (int i=0; i<orderService.size(); i++){
+            User user = userRepository.findByDocumento(orderService.get(i).getDocumento_usuario());
             UserAppDTO orderServiceDTO = new UserAppDTO();
             orderServiceDTO.setId(userApp.getId());
             orderServiceDTO.setDocumento(userApp.getDocumento());
