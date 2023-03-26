@@ -44,4 +44,6 @@ public class User {
     private String passwordApp;
     @Column(name="ciudad")
     private String ciudad;
+    @Column(name="tipo_documento")
+    private Long tipo_documento;
 }

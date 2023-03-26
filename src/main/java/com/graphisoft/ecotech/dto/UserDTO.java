@@ -24,4 +24,5 @@ public class UserDTO {
     private String usuario_app;
     private String password_app;
     private String ciudad;
+    private Long tipo_documento;
 }
