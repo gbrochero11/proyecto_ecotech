@@ -31,11 +31,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         if(user != null){
             return new ResponseModel(Time.getTime(), "", 422, "Ya se encuentra usuario registrado.");
         }
-        byte[] bytesDecodificados = Base64.getDecoder().decode(userDTO.getPassword_app());
+        byte[] bytesDecodificados = Base64.getDecoder().decode(userDTO.getPasswordApp());
         String cadenaDecodificada = new String(bytesDecodificados);
         String password = cadenaDecodificada;
         String encodedPassword = new BCryptPasswordEncoder().encode(password);
-        userDTO.setPassword_app(encodedPassword);
+        userDTO.setPasswordApp(encodedPassword);
         user= CustomMapper.mapObject(userDTO,User.class);
         userRepository.save(user);
         return new ResponseModel(Time.getTime(), user, 204, "Registro de usuario exitoso.");
