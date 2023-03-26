@@ -7,13 +7,13 @@ public class JwtResponse implements Serializable {
     private final String jwttoken;
     private final Long id;
     private final Long documento;
-    private final Long tipoUsuario;
+    private final Long tipousuario;
     private final String nombre;
-    public JwtResponse(String jwttoken, Long id, Long documento, Long tipoUsuario, String nombre) {
+    public JwtResponse(String jwttoken, Long id, Long documento, Long tipousuario, String nombre) {
         this.jwttoken = jwttoken;
         this.id = id;
         this.documento = documento;
-        this.tipoUsuario = tipoUsuario;
+        this.tipousuario = tipousuario;
         this.nombre = nombre;
     }
     public String getToken() {
@@ -28,8 +28,8 @@ public class JwtResponse implements Serializable {
         return documento;
     }
 
-    public Long getTipoUsuario() {
-        return tipoUsuario;
+    public Long getTipousuario() {
+        return tipousuario;
     }
 
     public String getNombre() {
