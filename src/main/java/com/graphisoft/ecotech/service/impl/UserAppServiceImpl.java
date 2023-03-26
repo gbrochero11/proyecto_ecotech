@@ -60,7 +60,7 @@ public class UserAppServiceImpl implements UserAppService {
             orderServiceDTO.setFecha_solicitud(orderService.get(i).getFecha_solicitud());
             orderServiceDTO.setTelefono(orderService.get(i).getTelefono());
             orderServiceDTO.setNombre(user.getNombre());
-            orderServiceDTO.setCodigo_rut(user.getCodigo_rut());
+            orderServiceDTO.setCodigo_rut(user.getCodigoRut());
             orderServiceDTO.setCodigo_estado(orderService.get(i).getCodigo_estado());
             mapService.add(orderServiceDTO);
         }
