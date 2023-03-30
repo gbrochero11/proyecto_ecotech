@@ -27,7 +27,21 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private UserRepository userRepository;
 
     public ResponseModel createUser(UserDTO userDTO) {
-        User user = userRepository.findByDocumento(userDTO.getDocumento().toString());
+        User user = userRepository.findByDocumento(userDTO.getDocumento().toString(),
+                userDTO.getCorreoElectronico(), userDTO.getUsuarioApp());
+
+        if(user.getDocumento() == userDTO.getDocumento()){
+            return new ResponseModel(Time.getTime(), "", 422, "Ya se encuentra documento registrado.");
+        }
+
+        if(user.getCorreoElectronico() == userDTO.getCorreoElectronico()){
+            return new ResponseModel(Time.getTime(), "", 422, "Ya se encuentra correo registrado.");
+        }
+
+        if(user.getUsuarioApp() == userDTO.getUsuarioApp()){
+            return new ResponseModel(Time.getTime(), "", 422, "Ya se encuentra usuario registrado.");
+        }
+
         if(user != null){
             return new ResponseModel(Time.getTime(), "", 422, "Ya se encuentra usuario registrado.");
         }
