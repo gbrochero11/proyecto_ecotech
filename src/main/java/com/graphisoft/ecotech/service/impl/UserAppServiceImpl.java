@@ -82,7 +82,7 @@ public class UserAppServiceImpl implements UserAppService {
     public ResponseModel createUser(UserAppDTO userDTO) {
         UserApp user = userAppRepository.findByDocumento(userDTO.getDocumento().toString(), userDTO.getUsuarioapp());
         if(user != null && user.getDocumento().equals(userDTO.getDocumento())){
-            return new ResponseModel(Time.getTime(), "", 422, "Ya se encuentra recurso registrado con documento digitado.");
+            return new ResponseModel(Time.getTime(), "", 422, "Documento digitado ya se encuentra registrado. Por favor verifique si tiene cuenta existente.");
         }
         if(user != null && user.getUsuarioapp().equals(userDTO.getUsuarioapp())){
             return new ResponseModel(Time.getTime(), "", 422, "Utilice otro nombre de usuario. El digitado no esta disponible.");
