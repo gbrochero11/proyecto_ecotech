@@ -19,7 +19,7 @@ public interface UserAppRepository extends JpaRepository<UserApp, Long> {
     @Query(value = "select * from recursos_empresas where (id_empresa = :id)", nativeQuery = true)
     List<UserApp> findResourcesEmpresa(@Param("id") Long id);
 
-    @Query(value = "select * from recursos_empresas where (documento = :identification)", nativeQuery = true)
-    UserApp findByDocumento(String identification);
+    @Query(value = "select * from recursos_empresas where (documento = :identification) or (usuarioapp = :userApp)", nativeQuery = true)
+    UserApp findByDocumento(String identification, String userApp);
 
 }
