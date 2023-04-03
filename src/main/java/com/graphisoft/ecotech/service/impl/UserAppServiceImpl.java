@@ -80,7 +80,31 @@ public class UserAppServiceImpl implements UserAppService {
     }
 
     public ResponseModel createUser(UserAppDTO userDTO) {
+
+        if (userDTO != null && userDTO.getNombres().isEmpty()){
+            return new ResponseModel(Time.getTime(), "", 422, "El campo nombre no puede estar vacio.");
+        }
+
+        if (userDTO != null && userDTO.getApellidos().isEmpty()){
+            return new ResponseModel(Time.getTime(), "", 422, "El campo apellidos no puede estar vacio.");
+        }
+
+        if (userDTO != null && userDTO.getDocumento().isEmpty()){
+            return new ResponseModel(Time.getTime(), "", 422, "El campo documento no puede estar vacio.");
+        }
+
+        if (userDTO != null && userDTO.getUsuarioapp().isEmpty()){
+            return new ResponseModel(Time.getTime(), "", 422, "El campo usuario no puede estar vacio.");
+        }
+
+        if (userDTO != null && userDTO.getContrasenaapp().isEmpty()){
+            return new ResponseModel(Time.getTime(), "", 422, "El campo contraseña no puede estar vacio.");
+        }
+
         UserApp user = userAppRepository.findByDocumento(userDTO.getDocumento().toString(), userDTO.getUsuarioapp());
+
+
+
         if(user != null && user.getDocumento().equals(userDTO.getDocumento())){
             return new ResponseModel(Time.getTime(), "", 422, "Documento digitado ya se encuentra registrado. Por favor verifique si tiene cuenta existente.");
         }
