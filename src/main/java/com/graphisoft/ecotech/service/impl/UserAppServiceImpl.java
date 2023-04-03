@@ -81,23 +81,23 @@ public class UserAppServiceImpl implements UserAppService {
 
     public ResponseModel createUser(UserAppDTO userDTO) {
 
-        if (userDTO != null && userDTO.getNombres().isEmpty()){
+        if (userDTO != null && userDTO.getNombres().isEmpty() || userDTO.getNombres().equals("")){
             return new ResponseModel(Time.getTime(), "", 422, "El campo nombre no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getApellidos().isEmpty()){
+        if (userDTO != null && userDTO.getApellidos().isEmpty() || userDTO.getApellidos().equals("")){
             return new ResponseModel(Time.getTime(), "", 422, "El campo apellidos no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getDocumento().isEmpty()){
+        if (userDTO != null && userDTO.getDocumento().isEmpty() || userDTO.getDocumento().equals("")){
             return new ResponseModel(Time.getTime(), "", 422, "El campo documento no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getUsuarioapp().isEmpty()){
+        if (userDTO != null && userDTO.getUsuarioapp().isEmpty() || userDTO.getUsuarioapp().equals("")){
             return new ResponseModel(Time.getTime(), "", 422, "El campo usuario no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getContrasenaapp().isEmpty()){
+        if (userDTO != null && userDTO.getContrasenaapp().isEmpty() || userDTO.getContrasenaapp().equals("")){
             return new ResponseModel(Time.getTime(), "", 422, "El campo contraseña no puede estar vacio.");
         }
 
