@@ -29,6 +29,22 @@ public class OrderServicesImpl implements OrderServices {
 
     public ResponseModel createOrder(OrderServiceDTO orderServiceDTO) {
 
+        if (orderServiceDTO != null && orderServiceDTO.getDireccion().trim().isEmpty()){
+            return new ResponseModel(Time.getTime(), "", 422, "El campo Dirección rut no puede estar vacio.");
+        }
+
+        if (orderServiceDTO != null && orderServiceDTO.getCiudad_origen().trim().isEmpty()){
+            return new ResponseModel(Time.getTime(), "", 422, "El campo Ciudad no puede estar vacio.");
+        }
+
+        if (orderServiceDTO != null && orderServiceDTO.getTelefono().toString().trim().isEmpty()){
+            return new ResponseModel(Time.getTime(), "", 422, "El campo Telefono no puede estar vacio.");
+        }
+
+        if (orderServiceDTO != null && orderServiceDTO.getFecha_solicitud().trim().isEmpty()){
+            return new ResponseModel(Time.getTime(), "", 422, "El campo Fecha no puede estar vacio.");
+        }
+
         OrderService orderServiceDB = CustomMapper.mapObject(orderServiceDTO, OrderService.class);
         orderServiceDB.setCodigo_estado(1L);
         orderServicesRepository.save(orderServiceDB);
