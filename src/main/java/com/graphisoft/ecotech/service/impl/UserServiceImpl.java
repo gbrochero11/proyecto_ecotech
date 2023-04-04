@@ -28,43 +28,43 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     public ResponseModel createUser(UserDTO userDTO) {
 
-        if (userDTO != null && userDTO.getNombre().isEmpty() || userDTO.getNombre().equalsIgnoreCase(" ")){
+        if (userDTO != null && userDTO.getNombre().trim().isEmpty()){
             return new ResponseModel(Time.getTime(), "", 422, "El campo nombre no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getDocumento().toString().isEmpty() || userDTO.getDocumento().toString().equalsIgnoreCase(" ")){
+        if (userDTO != null && userDTO.getDocumento().toString().trim().isEmpty()){
             return new ResponseModel(Time.getTime(), "", 422, "El campo documento no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getUsuarioApp().isEmpty() || userDTO.getUsuarioApp().equalsIgnoreCase(" ")){
+        if (userDTO != null && userDTO.getUsuarioApp().trim().isEmpty()){
             return new ResponseModel(Time.getTime(), "", 422, "El campo usuario no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getPasswordApp().isEmpty() || userDTO.getPasswordApp().equalsIgnoreCase(" ")){
+        if (userDTO != null && userDTO.getPasswordApp().trim().isEmpty()){
             return new ResponseModel(Time.getTime(), "", 422, "El campo contraseña no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getCorreoElectronico().isEmpty() || userDTO.getCorreoElectronico().equalsIgnoreCase(" ")){
+        if (userDTO != null && userDTO.getCorreoElectronico().trim().isEmpty()){
             return new ResponseModel(Time.getTime(), "", 422, "El campo correo electronico no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getDireccion().isEmpty() || userDTO.getDireccion().equalsIgnoreCase(" ")){
+        if (userDTO != null && userDTO.getDireccion().trim().isEmpty()){
             return new ResponseModel(Time.getTime(), "", 422, "El campo dirección no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getCodigoRut().toString().isEmpty() || userDTO.getCodigoRut().toString().equalsIgnoreCase(" ")){
+        if (userDTO != null && userDTO.getCodigoRut().toString().trim().isEmpty()){
             return new ResponseModel(Time.getTime(), "", 422, "El campo codigo rut no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getCiudad().isEmpty() || userDTO.getCiudad().equalsIgnoreCase(" ")){
+        if (userDTO != null && userDTO.getCiudad().trim().isEmpty()){
             return new ResponseModel(Time.getTime(), "", 422, "El campo ciudad no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getRazon_social().isEmpty() || userDTO.getRazon_social().equalsIgnoreCase(" ")){
+        if (userDTO != null && userDTO.getRazon_social().trim().isEmpty()){
             return new ResponseModel(Time.getTime(), "", 422, "El campo razon social no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getRepresentante().isEmpty() || userDTO.getRepresentante().equalsIgnoreCase(" ")){
+        if (userDTO != null && userDTO.getRepresentante().trim().isEmpty()){
             return new ResponseModel(Time.getTime(), "", 422, "El campo representate no puede estar vacio.");
         }
 

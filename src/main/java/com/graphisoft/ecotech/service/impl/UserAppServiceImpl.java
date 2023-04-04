@@ -81,23 +81,23 @@ public class UserAppServiceImpl implements UserAppService {
 
     public ResponseModel createUser(UserAppDTO userDTO) {
 
-        if (userDTO != null && userDTO.getNombres().length()  <= 0|| userDTO.getNombres().equalsIgnoreCase("")){
+        if (userDTO != null && userDTO.getNombres().trim().isEmpty()){
             return new ResponseModel(Time.getTime(), "", 422, "El campo nombre no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getApellidos().length()  <= 0 || userDTO.getApellidos().equalsIgnoreCase("")){
+        if (userDTO != null && userDTO.getApellidos().trim().isEmpty()){
             return new ResponseModel(Time.getTime(), "", 422, "El campo apellidos no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getDocumento().length()  <= 0 || userDTO.getDocumento().equalsIgnoreCase("")){
+        if (userDTO != null && userDTO.getDocumento().trim().isEmpty()){
             return new ResponseModel(Time.getTime(), "", 422, "El campo documento no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getUsuarioapp().length()  <= 0 || userDTO.getUsuarioapp().equalsIgnoreCase("")){
+        if (userDTO != null && userDTO.getUsuarioapp().trim().isEmpty()){
             return new ResponseModel(Time.getTime(), "", 422, "El campo usuario no puede estar vacio.");
         }
 
-        if (userDTO != null && userDTO.getContrasenaapp().length()  <= 0 || userDTO.getContrasenaapp().equalsIgnoreCase("")){
+        if (userDTO != null && userDTO.getContrasenaapp().trim().isEmpty()){
             return new ResponseModel(Time.getTime(), "", 422, "El campo contraseña no puede estar vacio.");
         }
 
