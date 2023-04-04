@@ -18,6 +18,11 @@ public class LogBookDTO {
     private Long estado_servicio;
     private Long toneladas;
     private String tipo_desecho;
-    private String nombre_servicio;
     private Long id_recurso;
+    private String nombre_servicio;
+    private String empresa_entrega;
+    private String empresa_recibe;
+    private String observaciones;
+    private String cantidad;
+
 }
