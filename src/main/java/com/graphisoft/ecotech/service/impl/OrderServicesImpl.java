@@ -30,7 +30,7 @@ public class OrderServicesImpl implements OrderServices {
     public ResponseModel createOrder(OrderServiceDTO orderServiceDTO) {
 
         if (orderServiceDTO != null && orderServiceDTO.getDireccion().trim().isEmpty()){
-            return new ResponseModel(Time.getTime(), "", 422, "El campo Dirección rut no puede estar vacio.");
+            return new ResponseModel(Time.getTime(), "", 422, "El campo Dirección no puede estar vacio.");
         }
 
         if (orderServiceDTO != null && orderServiceDTO.getCiudad_origen().trim().isEmpty()){
