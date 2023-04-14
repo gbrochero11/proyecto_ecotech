@@ -38,11 +38,11 @@ public class OrderServicesImpl implements OrderServices {
         }
 
         if (orderServiceDTO != null && orderServiceDTO.getToneladas() <= 0){
-            return new ResponseModel(Time.getTime(), "", 422, "El campo Toneladas no puede estar vacio.");
+            return new ResponseModel(Time.getTime(), "", 422, "El campo Toneladas no puede estar vacio o debe ser mayor a 0.");
         }
 
         if (orderServiceDTO != null && orderServiceDTO.getTelefono() <= 0){
-            return new ResponseModel(Time.getTime(), "", 422, "El campo Telefono no puede estar vacio.");
+            return new ResponseModel(Time.getTime(), "", 422, "El campo Telefono no puede estar vacio o debe ser mayor a 0.");
         }
 
         if (orderServiceDTO != null && orderServiceDTO.getFecha_solicitud().trim().isEmpty()){
