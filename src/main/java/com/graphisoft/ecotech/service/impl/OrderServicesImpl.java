@@ -1,6 +1,7 @@
 package com.graphisoft.ecotech.service.impl;
 
 import com.graphisoft.ecotech.dto.OrderServiceDTO;
+import com.graphisoft.ecotech.dto.UserCompany;
 import com.graphisoft.ecotech.model.OrderService;
 import com.graphisoft.ecotech.model.User;
 import com.graphisoft.ecotech.repository.OrderServicesRepository;
@@ -140,17 +141,16 @@ public class OrderServicesImpl implements OrderServices {
     public ResponseModel companyAssociatedHoreca(Long id) {
 
         List<OrderService> orderServiceList = orderServicesRepository.findByServicioID(id);
-        List<User> users= new ArrayList<>();
+        List<UserCompany> users= new ArrayList<>();
         for (OrderService orderService: orderServiceList) {
             User userRepositoryData = userRepository.findByDocumento(orderService.getDocumento_usuario());
-            User user= new User();
+            UserCompany user= new UserCompany();
             user.setCiudad(userRepositoryData.getCiudad());
             user.setDocumento(userRepositoryData.getDocumento());
             user.setNombre(userRepositoryData.getNombre());
             user.setTelefono(userRepositoryData.getTelefono());
             user.setDireccion(userRepositoryData.getDireccion());
             user.setRepresentante(userRepositoryData.getRepresentante());
-            user.setCodigoRut(userRepositoryData.getCodigoRut());
             user.setCorreoElectronico(userRepositoryData.getCorreoElectronico());
             users.add(user);
         }
@@ -163,17 +163,16 @@ public class OrderServicesImpl implements OrderServices {
     public ResponseModel companyAssociatedEmpresa(Long id) {
 
         List<OrderService> orderServiceList = orderServicesRepository.findByServicioID(id);
-        List<User> users= new ArrayList<>();
+        List<UserCompany> users= new ArrayList<>();
         for (OrderService orderService: orderServiceList) {
             User userRepositoryData = userRepository.findByDocumento(orderService.getDocumento_empresa());
-            User user= new User();
+            UserCompany user= new UserCompany();
             user.setCiudad(userRepositoryData.getCiudad());
             user.setDocumento(userRepositoryData.getDocumento());
             user.setNombre(userRepositoryData.getNombre());
             user.setTelefono(userRepositoryData.getTelefono());
             user.setDireccion(userRepositoryData.getDireccion());
             user.setRepresentante(userRepositoryData.getRepresentante());
-            user.setCodigoRut(userRepositoryData.getCodigoRut());
             user.setCorreoElectronico(userRepositoryData.getCorreoElectronico());
             users.add(user);
         }
