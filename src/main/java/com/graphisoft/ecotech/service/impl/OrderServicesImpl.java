@@ -136,4 +136,50 @@ public class OrderServicesImpl implements OrderServices {
         }
         return new ResponseModel(Time.getTime(), "", 404, "Datos no encontrados.");
     }
+
+    public ResponseModel companyAssociatedHoreca(Long id) {
+
+        List<OrderService> orderServiceList = orderServicesRepository.findByServicioID(id);
+        List<User> users= new ArrayList<>();
+        for (OrderService orderService: orderServiceList) {
+            User userRepositoryData = userRepository.findByDocumento(orderService.getDocumento_usuario());
+            User user= new User();
+            user.setCiudad(userRepositoryData.getCiudad());
+            user.setDocumento(userRepositoryData.getDocumento());
+            user.setNombre(userRepositoryData.getNombre());
+            user.setTelefono(userRepositoryData.getTelefono());
+            user.setDireccion(userRepositoryData.getDireccion());
+            user.setRepresentante(userRepositoryData.getRepresentante());
+            user.setCodigoRut(userRepositoryData.getCodigoRut());
+            user.setCorreoElectronico(userRepositoryData.getCorreoElectronico());
+            users.add(user);
+        }
+        if(!users.isEmpty() && users.size() > 0){
+            return new ResponseModel(Time.getTime(), users, 200, "Datos encontrados.");
+        }
+        return new ResponseModel(Time.getTime(), "", 404, "Datos no encontrados.");
+    }
+
+    public ResponseModel companyAssociatedEmpresa(Long id) {
+
+        List<OrderService> orderServiceList = orderServicesRepository.findByServicioID(id);
+        List<User> users= new ArrayList<>();
+        for (OrderService orderService: orderServiceList) {
+            User userRepositoryData = userRepository.findByDocumento(orderService.getDocumento_empresa());
+            User user= new User();
+            user.setCiudad(userRepositoryData.getCiudad());
+            user.setDocumento(userRepositoryData.getDocumento());
+            user.setNombre(userRepositoryData.getNombre());
+            user.setTelefono(userRepositoryData.getTelefono());
+            user.setDireccion(userRepositoryData.getDireccion());
+            user.setRepresentante(userRepositoryData.getRepresentante());
+            user.setCodigoRut(userRepositoryData.getCodigoRut());
+            user.setCorreoElectronico(userRepositoryData.getCorreoElectronico());
+            users.add(user);
+        }
+        if(!users.isEmpty() && users.size() > 0){
+            return new ResponseModel(Time.getTime(), users, 200, "Datos encontrados.");
+        }
+        return new ResponseModel(Time.getTime(), "", 404, "Datos no encontrados.");
+    }
 }

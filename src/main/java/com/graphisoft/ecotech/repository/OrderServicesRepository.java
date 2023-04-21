@@ -39,4 +39,7 @@ public interface OrderServicesRepository  extends JpaRepository<OrderService, Lo
     @Query(value = "select * from solicitud_servicios where (documento_empresa = :identification) and (id_recurso is null)", nativeQuery = true)
     List<OrderService> findByOrderServicesNotAssigned(String identification);
 
+    @Query(value = "select * from solicitud_servicios where (id = :id)", nativeQuery = true)
+    List<OrderService> findByServicioID(Long id);
+
 }

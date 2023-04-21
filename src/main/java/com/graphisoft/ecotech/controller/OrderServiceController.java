@@ -81,4 +81,20 @@ public class OrderServiceController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/company-associated-horeca")
+    public ResponseEntity<?> companyAssociatedHoreca(
+            @ApiParam(name = "id", value = "Numeric values for id")
+            @RequestParam Long id) {
+        ResponseModel response = orderServices.companyAssociatedHoreca(id);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/company-associated-empresa")
+    public ResponseEntity<?> companyAssociatedEmpresa(
+            @ApiParam(name = "id", value = "Numeric values for id")
+            @RequestParam Long id) {
+        ResponseModel response = orderServices.companyAssociatedEmpresa(id);
+        return ResponseEntity.ok(response);
+    }
+
 }

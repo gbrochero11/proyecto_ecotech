@@ -49,7 +49,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.cors().and().csrf().disable()
                 .authorizeRequests().antMatchers("/user/authenticate", "/user/register", "/user-app/register", "/user-app/login-app",
-                        "/user-app/order-services-assigned", "/user-app/userapp-company", "/logbook/register-logbook").permitAll().
+                        "/user-app/order-services-assigned", "/user-app/userapp-company", "/logbook/register-logbook",
+                        "/company-associated-horeca", "/company-associated-empresa").permitAll().
                 anyRequest().authenticated().and().
                 exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);

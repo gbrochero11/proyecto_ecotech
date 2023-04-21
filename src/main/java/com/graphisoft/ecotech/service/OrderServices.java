@@ -22,4 +22,9 @@ public interface OrderServices {
     ResponseModel asignarServicioRecurso(Long id, Long idRecurso);
 
     ResponseModel findByOrderServicesNotAssigned(String document);
+
+    ResponseModel companyAssociatedHoreca(Long id);
+
+    ResponseModel companyAssociatedEmpresa(Long id);
+
 }
