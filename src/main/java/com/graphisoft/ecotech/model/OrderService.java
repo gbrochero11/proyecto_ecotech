@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @NoArgsConstructor
@@ -23,7 +24,7 @@ public class OrderService {
     private Long codigo_estado;
     private String direccion;
     private Long toneladas;
-    private String fecha_solicitud;
+    private LocalDateTime fecha_solicitud;
     private String ciudad_origen;
     private Long telefono;
     private String documento_empresa;

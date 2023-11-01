@@ -14,7 +14,7 @@ public class UserDTO {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private Long id;
-    private Long documento;
+    private String documento;
     private Long tipoUsuario;
     private String nombre;
     private String razon_social;

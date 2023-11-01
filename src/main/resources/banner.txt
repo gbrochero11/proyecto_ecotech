@@ -8,3 +8,4 @@ Powered by Graphisoft with Spring Boot ${spring-boot.version}
 
 
 
+postgres://admin:YTeE1sQQzwqgCGDbtOhJD8aTmNx8gpKe@dpg-cjueve15mpss73dmj8i0-a.oregon-postgres.render.com/ecotech_0yqx

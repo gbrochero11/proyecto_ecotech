@@ -46,7 +46,7 @@ public class OrderServicesImpl implements OrderServices {
             return new ResponseModel(Time.getTime(), "", 422, "El campo Telefono no puede estar vacio o debe ser mayor a 0.");
         }
 
-        if (orderServiceDTO != null && orderServiceDTO.getFecha_solicitud().trim().isEmpty()){
+        if (orderServiceDTO != null && orderServiceDTO.getFecha_solicitud() == null){
             return new ResponseModel(Time.getTime(), "", 422, "El campo Fecha no puede estar vacio.");
         }
 

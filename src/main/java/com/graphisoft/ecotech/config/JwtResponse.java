@@ -6,10 +6,10 @@ public class JwtResponse implements Serializable {
     private static final long serialVersionUID = -8091879091924046844L;
     private final String jwttoken;
     private final Long id;
-    private final Long documento;
+    private final String documento;
     private final Long tipousuario;
     private final String nombre;
-    public JwtResponse(String jwttoken, Long id, Long documento, Long tipousuario, String nombre) {
+    public JwtResponse(String jwttoken, Long id, String documento, Long tipousuario, String nombre) {
         this.jwttoken = jwttoken;
         this.id = id;
         this.documento = documento;
@@ -24,7 +24,7 @@ public class JwtResponse implements Serializable {
         return id;
     }
 
-    public Long getDocumento() {
+    public String getDocumento() {
         return documento;
     }
 

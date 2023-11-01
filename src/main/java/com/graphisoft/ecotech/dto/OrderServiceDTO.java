@@ -1,10 +1,12 @@
 package com.graphisoft.ecotech.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -18,7 +20,8 @@ public class OrderServiceDTO {
     private Long codigo_estado;
     private String direccion;
     private Long toneladas;
-    private String fecha_solicitud;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime fecha_solicitud;
     private String ciudad_origen;
     private String nombre_horeca;
     private Long telefono;

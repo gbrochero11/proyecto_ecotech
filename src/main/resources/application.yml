@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 10000
   servlet:
     context-path: '/api'
 spring:
@@ -16,9 +16,9 @@ spring:
   datasource:
     initialization-mode: always
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://ec2-3-217-251-77.compute-1.amazonaws.com:5432/dbo0f612upe64q
-    username: pleqapiolqflmv
-    password: 4efa3aa0734b1749be80fd01a0beb93d994b98ea75bf0a20e8f798a34281795f
+    url: jdbc:postgresql://dpg-cjueve15mpss73dmj8i0-a.oregon-postgres.render.com:5432/ecotech_0yqx
+    username: admin
+    password: YTeE1sQQzwqgCGDbtOhJD8aTmNx8gpKe
     continueOnError: true
   jpa:
     showSql: true

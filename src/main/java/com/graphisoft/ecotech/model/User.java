@@ -21,7 +21,7 @@ public class User {
 
     private Long id;
     @Column(name="documento")
-    private Long documento;
+    private String documento;
     @Column(name="tipousuario")
     private Long tipoUsuario;
     @Column(name="nombre")

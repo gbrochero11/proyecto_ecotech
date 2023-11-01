@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserCompany {
 
-    private Long documento;
+    private String documento;
     private String nombre;
     private String direccion;
     private String representante;

@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
             return new ResponseModel(Time.getTime(), "", 422, "El campo representate no puede estar vacio.");
         }
 
-        User user = userRepository.findByDocumento(userDTO.getDocumento().toString(),
+        User user = userRepository.findByDocumento(userDTO.getDocumento(),
                 userDTO.getCorreoElectronico(), userDTO.getUsuarioApp());
 
         if(user != null && user.getDocumento().equals(userDTO.getDocumento())){
