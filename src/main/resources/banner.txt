@@ -4,7 +4,7 @@
 |  `---.'  '--'\'  '-'  '   |  |   |  `---.'  '--'\|  |  |  |
 `------' `-----' `-----'    `--'   `------' `-----'`--'  `--'
 ${spring.application.title} ${spring.application.version}
-Powered by Graphisoft with Spring Boot ${spring-boot.version}
+Powered by Graphisoftt with Spring Boot ${spring-boot.version}
 
 
 
